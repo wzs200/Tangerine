@@ -53,7 +53,7 @@ class CartProduct(models.Model):
     def __str__(self):
         return "Продукт: {} (для корзины)".format(self.product.title)
 
-    # def save(self, *args, **kwargs):
-    #     self.final_price = self.qty * self.content_object.price
-    #     super().save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        self.final_price = self.qty * self.content_object.price
+        super().save(*args, **kwargs)
 
